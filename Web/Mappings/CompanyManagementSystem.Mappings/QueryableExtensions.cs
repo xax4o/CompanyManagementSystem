@@ -1,4 +1,4 @@
-﻿namespace CompanyManagementSysytem.Web.Mappings
+﻿namespace CompanyManagementSystem.Web.Mappings
 {
     using System;
     using System.Linq;

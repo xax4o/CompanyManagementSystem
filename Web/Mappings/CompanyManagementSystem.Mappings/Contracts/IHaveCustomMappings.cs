@@ -1,4 +1,4 @@
-﻿namespace CompanyManagementSysytem.Web.Mappings.Contracts
+﻿namespace CompanyManagementSystem.Web.Mappings.Contracts
 {
     using AutoMapper;
 

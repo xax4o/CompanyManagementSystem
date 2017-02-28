@@ -2,7 +2,7 @@
 {
     using System.Reflection;
 
-    using CompanyManagementSysytem.Web.Mappings;
+    using CompanyManagementSystem.Web.Mappings;
 
     public static class AutoMapperConfig
     {
