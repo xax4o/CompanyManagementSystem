@@ -2,7 +2,7 @@
 {
     public enum CompanyRoleType
     {
-        Ceo = 0,
+        CEO = 0,
         DeliveryDirector = 1,
         ProjectManager = 2,
         TeamLeader = 3,
