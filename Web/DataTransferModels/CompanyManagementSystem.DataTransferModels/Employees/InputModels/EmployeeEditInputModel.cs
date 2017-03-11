@@ -8,6 +8,8 @@
 
     public class EmployeeEditInputModel : EmployeeBaseInputModel, IMapFrom<Employee>, IMapTo<Employee>
     {
+        public string Name { get; set; }
+
         public int? Position { get; set; }
 
         public IEnumerable<SelectListItem> AvailablePositions { get; set; }

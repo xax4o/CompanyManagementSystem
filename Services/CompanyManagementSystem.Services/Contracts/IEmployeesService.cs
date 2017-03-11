@@ -14,9 +14,7 @@
 
         void RemoveEmployeesFromManager(IEnumerable<int> idsOfEmployeesToRemove);
 
-        void UpdateEmployee(int id, string phone, decimal salary, string workplace);
-
-        void UpdateEmployee(int id, string phone, decimal salary, string workplace, int? positionAsInt);
+        void UpdateEmployee(int id, string phone, decimal salary, string email, string workplace, int? positionAsInt);
 
         string GetEmployeesManagersNameAtPosition(CompanyRoleType type, Employee employee);
 

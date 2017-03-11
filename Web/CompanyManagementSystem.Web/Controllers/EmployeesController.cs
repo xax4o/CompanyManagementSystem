@@ -201,11 +201,11 @@
 
             if (employee.Position > CompanyRoleType.TeamLeader)
             {
-                this.employeesService.UpdateEmployee(id, model.Phone, model.Salary, model.Workplace, model.Position);
+                this.employeesService.UpdateEmployee(id, model.Phone, model.Salary, model.Email, model.Workplace, model.Position);
             }
             else
             {
-                this.employeesService.UpdateEmployee(id, model.Phone, model.Salary, model.Workplace);
+                this.employeesService.UpdateEmployee(id, model.Phone, model.Salary, model.Email, model.Workplace, null);
             }
 
             return RedirectToAction("Index");

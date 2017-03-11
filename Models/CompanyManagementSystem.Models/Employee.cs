@@ -27,6 +27,9 @@
         [MaxLength(100)]
         public string Workplace { get; set; }
 
+        [MaxLength(30)]
+        public string Email { get; set; }
+
         [MaxLength(15)]
         public string Phone { get; set; }
 

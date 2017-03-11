@@ -69,26 +69,23 @@
             this.employees.SaveChanges();
         }
 
-        public void UpdateEmployee(int id, string phone, decimal salary, string workplace)
+        public void UpdateEmployee(int id, string phone, decimal salary, string email, string workplace, int? positionAsInt)
         {
             var employee = this.GetEmployeeById(id);
+
+            if (employee == null)
+            {
+                return;
+            }
 
             employee.Phone = phone;
             employee.Salary = salary;
             employee.Workplace = workplace;
 
-            this.employees.Update(employee);
-            this.employees.SaveChanges();
-        }
-
-        public void UpdateEmployee(int id, string phone, decimal salary, string workplace, int? positionAsInt)
-        {
-            var employee = this.GetEmployeeById(id);
-
-            employee.Position = (CompanyRoleType)positionAsInt;
-            employee.Phone = phone;
-            employee.Salary = salary;
-            employee.Workplace = workplace;
+            if (positionAsInt != null)
+            {
+                employee.Position = (CompanyRoleType)positionAsInt;
+            }
 
             this.employees.Update(employee);
             this.employees.SaveChanges();
