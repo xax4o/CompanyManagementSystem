@@ -18,10 +18,8 @@
         private IEmployeesService employeesService;
         private IMappingService mappingService;
         private ITeamsService teamsService;
-        private IProjectsService projectsService;
 
         public TeamsController(
-            IProjectsService projectsService,
             ITeamsService teamsService,
             IEmployeesService employeesService,
             IMappingService mappingService)
@@ -29,7 +27,6 @@
             this.employeesService = employeesService;
             this.mappingService = mappingService;
             this.teamsService = teamsService;
-            this.projectsService = projectsService;
         }
 
         [HttpGet]
@@ -125,66 +122,6 @@
 
             this.teamsService.AddTeam(team, model.ProjectTeamLeadId);
             this.teamsService.AddTeamMemebers(team, model.TeamMembersIds);
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public ActionResult Manage(int id)
-        {
-            var team = this.teamsService.GetTeamById(id);
-
-            if (team == null)
-            {
-                return HttpNotFound();
-            }
-
-            var freeEmployees = this.employeesService
-                .AllEmployees()
-                .Where(e => e.Position > CompanyRoleType.TeamLeader && e.Team == null)
-                .ToList();
-
-            var teamMembers = this.teamsService.GetTeamById(id)
-                .Employees
-                .Where(e => e.Position != CompanyRoleType.TeamLeader)
-                .ToList();
-
-            var freeProjects = this.projectsService
-                .AllProjects()
-                .Where(p => p.Status == ProjectStatus.NotStarted)
-                .ToList();
-
-            var manageTeamViewModel = new TeamManageInputModel
-            {
-                FreeMembers = this.employeesService.SelectListItemGenerator(freeEmployees),
-                TeamMembers = this.employeesService.SelectListItemGenerator(teamMembers),
-                FreeProjects = this.projectsService.SelectListItemGenerator(freeProjects)
-            };
-
-            return View(manageTeamViewModel);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Manage(int id, TeamManageInputModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            var team = this.teamsService.GetTeamById(id);
-
-            if (team == null)
-            {
-                return HttpNotFound();
-            }
-
-            this.teamsService.AddTeamMemebers(team, model.TeamMembersToAdd);
-            this.teamsService.RemoveTeamMemebers(team, model.TeamMembersToRemove);
-
-            var projectToAdd = this.projectsService.AllProjects().FirstOrDefault(p => p.Id == model.ProjectToAdd);
-            this.teamsService.AddProjectToTeam(team, projectToAdd);
 
             return RedirectToAction("Index");
         }

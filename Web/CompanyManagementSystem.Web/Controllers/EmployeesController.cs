@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-    using System.Net;
     using System.Web.Mvc;
 
     using CompanyManagementSystem.DataTransferModels.Employees.InputModels;
@@ -97,77 +96,6 @@
 
             var employee = this.mappingService.Map<Employee>(model);
             this.employeesService.AddEmployee(employee);
-
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public ActionResult Manage(int id)
-        {
-            var employee = this.employeesService.GetEmployeeById(id);
-
-            if (employee == null)
-            {
-                return HttpNotFound();
-            }
-
-            if (employee.Position > CompanyRoleType.ProjectManager)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            if (employee.Position != CompanyRoleType.CEO && employee.Manager == null)
-            {
-                return PartialView("Error");
-            }
-
-            var employeesToAdd = this.employeesService
-                .AllEmployees()
-                .Where(e => e.Position == employee.Position + 1 && e.Manager == null)
-                .ToList();
-
-            var employeesToRemove = this.employeesService
-                .AllEmployees()
-                .Where(e => e.EmployeeId == employee.Id)
-                .ToList();
-
-            var employeeManageInputModel = new EmployeeManageInputModel
-            {
-                ListMembersToAdd = this.employeesService.SelectListItemGenerator(employeesToAdd),
-                ListMembersToRemove = this.employeesService.SelectListItemGenerator(employeesToRemove)
-            };
-
-            return View(employeeManageInputModel);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Manage(int id, EmployeeManageInputModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            var employee = this.employeesService.GetEmployeeById(id);
-
-            if (employee == null)
-            {
-                return HttpNotFound();
-            }
-
-            if (employee.Position > CompanyRoleType.ProjectManager)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            if (!this.employeesService.IfEmployeesCanBeRemovedChecker(employee, model.TeamMembersToRemove))
-            {
-                return PartialView("Error");
-            }  
-
-            this.employeesService.AddEmployeesToManager(id, model.TeamMembersToAdd);
-            this.employeesService.RemoveEmployeesFromManager(model.TeamMembersToRemove);
 
             return RedirectToAction("Index");
         }

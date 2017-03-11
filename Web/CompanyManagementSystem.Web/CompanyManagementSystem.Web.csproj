@@ -144,6 +144,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -192,6 +193,8 @@
     <Content Include="Views\Teams\Add.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
     <Content Include="Views\Teams\Team.cshtml" />
+    <Content Include="Views\Manage\Team.cshtml" />
+    <Content Include="Views\Manage\Employee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\CompanyManagementSystem.Data\CompanyManagementSystem.Data.csproj">
