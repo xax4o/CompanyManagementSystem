@@ -1,0 +1,68 @@
+﻿@model CompanyManagementSystem.DataTransferModels.Employees.InputModels.EmployeeEditInputModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Employee</h2>
+<br />
+
+<div>
+    <h3>@Model.Name's Profile</h3>
+</div>
+
+<hr />
+@using (Html.BeginForm("Edit", "Employees", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(e => e.Phone, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(e => e.Phone, new { @class = "form-control" })
+            @Html.ValidationMessageFor(e => e.Phone)
+        </div>
+    </div>
+    if (Model.AvailablePositions != null)
+    {
+        <div class="form-group">
+            @Html.LabelFor(e => e.Position, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(e => e.Position, @Model.AvailablePositions, new { @class = "form-control" })
+                @Html.ValidationMessageFor(e => e.Position)
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        @Html.LabelFor(e => e.Salary, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(e => e.Salary, new { @class = "form-control" })
+            @Html.ValidationMessageFor(e => e.Salary)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(e => e.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(e => e.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(e => e.Email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(e => e.Workplace, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(e => e.Workplace, new { @class = "form-control" })
+            @Html.ValidationMessageFor(e => e.Workplace)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-3">
+            <input type="submit" class="btn btn-default" value="Edit Profile" />
+        </div>
+    </div>
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

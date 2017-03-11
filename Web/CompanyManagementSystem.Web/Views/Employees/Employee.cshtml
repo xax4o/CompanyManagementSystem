@@ -1,0 +1,59 @@
+﻿@model  CompanyManagementSystem.DataTransferModels.Employees.ViewModels.EmployeeDetailsViewModel
+@{
+    ViewBag.Title = "Employee";
+}
+
+<h2>@Model.Name's Profile</h2>
+
+<br />
+<div class="form-group">
+    <div>
+        @Html.LabelFor(e => e.Salary)
+        @Model.Salary
+    </div>
+    <div>
+        @Html.LabelFor(e => e.Position)
+        @Model.Position
+    </div>
+    <div>
+        @Html.LabelFor(e => e.Phone)
+        @Model.Phone
+    </div>
+    <div>
+        @Html.LabelFor(e => e.Email)
+        @Model.Email
+    </div>
+    <div>
+        @Html.LabelFor(e => e.Workplace)
+        @Model.Workplace
+    </div>
+</div>
+
+<hr />
+<div class="form-group">
+    <div>
+        @Html.LabelFor(e => e.TeamName)
+        @Model.TeamName
+    </div>
+    <div>
+        @Html.LabelFor(e => e.TeamLead)
+        @Model.TeamLead
+    </div>
+</div>
+
+<hr />
+<div class="form-group">
+    <div>
+        @Html.LabelFor(e => e.Ceo)
+        @Model.Ceo
+    </div>
+    <div>
+        @Html.LabelFor(e => e.DeliveryDirector)
+        @Model.DeliveryDirector
+    </div>
+    <div>
+        @Html.LabelFor(e => e.ProjectManager)
+        @Model.ProjectManager
+    </div>
+</div>
+

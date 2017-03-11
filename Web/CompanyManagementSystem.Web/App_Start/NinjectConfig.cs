@@ -1,5 +1,5 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CompanyManagementSystem.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CompanyManagementSystem.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CompanyManagementSystem.Web.App_Start.NinjectConfig), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CompanyManagementSystem.Web.App_Start.NinjectConfig), "Stop")]
 
 namespace CompanyManagementSystem.Web.App_Start
 {
@@ -15,8 +15,10 @@ namespace CompanyManagementSystem.Web.App_Start
     using CompanyManagementSystem.Data;
     using CompanyManagementSystem.Data.Repositories;
     using CompanyManagementSystem.Data.Repositories.Contracts;
+    using CompanyManagementSystem.Services.Contracts;
+    using CompanyManagementSystem.Services;
 
-    public static class NinjectWebCommon 
+    public static class NinjectConfig 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
@@ -68,6 +70,10 @@ namespace CompanyManagementSystem.Web.App_Start
         {
             kernel.Bind(typeof(IRepository<>)).To(typeof(EfGenericRepository<>));
             kernel.Bind<DbContext>().To<CompanyManagementDbContext>().InRequestScope();
+            kernel.Bind<IEmployeesService>().To<EmployeesService>();
+            kernel.Bind<ITeamsService>().To<TeamsService>();
+            kernel.Bind<IProjectsService>().To<ProjectsService>();
+            kernel.Bind<IMappingService>().To<MappingService>().InSingletonScope();
         }        
     }
 }

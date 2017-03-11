@@ -7,7 +7,7 @@
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
 
-    public class TeamsService
+    public class TeamsService : ITeamsService
     {
         private IRepository<Team> teams;
         private IEmployeesService employeesService;

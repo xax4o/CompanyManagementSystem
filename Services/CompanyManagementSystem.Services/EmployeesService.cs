@@ -100,6 +100,7 @@
             employee.Phone = phone;
             employee.Salary = salary;
             employee.Workplace = workplace;
+            employee.Email = email;
 
             if (positionAsInt != null)
             {

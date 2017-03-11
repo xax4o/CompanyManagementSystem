@@ -9,7 +9,7 @@
         public static void RegisterAllMappings()
         {
             var mapper = new AutoMapperConfigurations();
-            mapper.Execute(Assembly.GetExecutingAssembly());
+            mapper.Execute(Assembly.Load("CompanyManagementSystem.DataTransferModels"));
         }
     }
 }

@@ -1,0 +1,87 @@
+﻿@model CompanyManagementSystem.DataTransferModels.Employees.ViewModels.EmployeesPagedViewModel
+@{
+    ViewBag.Title = "Employees";
+}
+
+<h2>All Employees</h2>
+<br />
+
+@{
+    var index = ((Model.CurrentPage - 1) * @Model.PageSize) + 1;
+}
+
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Salary</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Workplace</th>
+            <th>Manager</th>
+            <th>Team</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model.Employees)
+        {
+            <tr>
+                <td>@(index++)</td>
+                <td>@employee.Name</td>
+                <td>@employee.Position</td>
+                <td>@employee.Salary</td>
+                <td>@employee.Phone</td>
+                <td>@employee.Email</td>
+                <td>@employee.Workplace</td>
+                <td>@employee.ManagerName</td>
+                <td>@employee.TeamName</td>
+                <td>
+                    <a href="/Employees/Edit/@employee.Id">Edit</a> |
+                    <a href="/Employees/Employee/@employee.Id">Details</a> |
+                    @if ((int)employee.Position < 3)
+                    {
+                        <a href="/Employees/Manage/@employee.Id">Manage</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="text-center">
+    <nav aria-label="Page navigation">
+        <ul class="pagination ">
+
+            @if (Model.CurrentPage > 1)
+            {
+                <li>
+                    <a href="/Employees/Index?page=@(Model.CurrentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                var className = string.Empty;
+                if (Model.CurrentPage == i)
+                {
+                    className = "active";
+                }
+
+                <li class="@className"><a href="/Employees/Index?page=@i">@i</a></li>
+            }
+
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li>
+                    <a href="/Employees/Index?page=@(Model.CurrentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

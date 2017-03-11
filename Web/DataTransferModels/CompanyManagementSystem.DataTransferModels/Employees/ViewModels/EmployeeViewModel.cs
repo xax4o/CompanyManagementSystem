@@ -13,7 +13,6 @@
 
         public string TeamName { get; set; }
 
-
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Employee, EmployeeViewModel>()

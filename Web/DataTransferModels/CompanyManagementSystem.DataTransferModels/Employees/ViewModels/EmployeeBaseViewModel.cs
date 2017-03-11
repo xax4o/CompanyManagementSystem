@@ -1,8 +1,9 @@
 ﻿namespace CompanyManagementSystem.DataTransferModels.Employees.ViewModels
 {
+    using CompanyManagementSystem.Mappings.Contracts;
     using CompanyManagementSystem.Models;
 
-    public class EmployeeBaseViewModel
+    public class EmployeeBaseViewModel : IMapFrom<Employee>
     {
         public string Name { get; set; }
 

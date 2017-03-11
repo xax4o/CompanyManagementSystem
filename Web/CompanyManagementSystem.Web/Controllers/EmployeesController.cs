@@ -84,14 +84,14 @@
             if (this.employeesService.AllEmployees().Any(e => e.Position == CompanyRoleType.CEO)
                 && model.Position == CompanyRoleType.CEO)
             {
-                ModelState.AddModelError(string.Empty, "There's already a Ceo added. You cannot add another one.");
+                ModelState.AddModelError(string.Empty, "There's already a CEO added. You cannot add another one.");
                 return View(model);
             }
 
             if (!this.employeesService.AllEmployees().Any(e => e.Position == CompanyRoleType.CEO)
                 && model.Position != CompanyRoleType.CEO)
             {
-                ModelState.AddModelError(string.Empty, "There's no Ceo added. You must add Seo first.");
+                ModelState.AddModelError(string.Empty, "There's no CEO added. You must add CEO first.");
                 return View(model);
             }
 
