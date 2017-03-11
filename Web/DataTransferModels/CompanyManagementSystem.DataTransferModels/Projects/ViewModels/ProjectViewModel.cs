@@ -1,11 +1,11 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Projects.ViewModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Projects.ViewModels
 {
     using System.Linq;
 
     using AutoMapper;
 
+    using CompanyManagementSystem.Mappings.Contracts;
     using CompanyManagementSystem.Models;
-    using CompanyManagementSystem.Web.Mappings.Contracts;
 
     public class ProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
     {

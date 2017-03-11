@@ -1,4 +1,4 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Employees.ViewModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Employees.ViewModels
 {
     using CompanyManagementSystem.Models;
 

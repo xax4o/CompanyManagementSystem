@@ -1,4 +1,4 @@
-﻿namespace CompanyManagementSystem.Web.Mappings.Contracts
+﻿namespace CompanyManagementSystem.Mappings.Contracts
 {
     public interface IMapFrom<T>
     {

@@ -1,4 +1,4 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Common
+﻿namespace CompanyManagementSystem.DataTransferModels.Common
 {
     public class BasePagedViewModel
     {

@@ -1,9 +1,9 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Projects.InputModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Projects.InputModels
 {
     using System.ComponentModel.DataAnnotations;
 
+    using CompanyManagementSystem.Mappings.Contracts;
     using CompanyManagementSystem.Models;
-    using CompanyManagementSystem.Web.Mappings.Contracts;
 
     public class ProjectInputModel : IMapTo<Project>
     {

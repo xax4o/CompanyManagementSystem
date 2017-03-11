@@ -1,8 +1,8 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Teams.ViewModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Teams.ViewModels
 {
     using System.Collections.Generic;
 
-    using CompanyManagementSystem.Web.ViewModels.Common;
+    using CompanyManagementSystem.DataTransferModels.Common;
 
     public class TeamsPagedViewModel : BasePagedViewModel
     {

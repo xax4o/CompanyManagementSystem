@@ -157,22 +157,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\Common\BasePagedViewModel.cs" />
-    <Compile Include="ViewModels\Employees\InputModels\EmployeeBaseInputModel.cs" />
-    <Compile Include="ViewModels\Employees\InputModels\EmployeeEditInputModel.cs" />
-    <Compile Include="ViewModels\Employees\InputModels\EmployeeInputModel.cs" />
-    <Compile Include="ViewModels\Employees\InputModels\EmployeeManageInputModel.cs" />
-    <Compile Include="ViewModels\Employees\ViewModels\EmployeeBaseViewModel.cs" />
-    <Compile Include="ViewModels\Employees\ViewModels\EmployeeDetailsViewModel.cs" />
-    <Compile Include="ViewModels\Employees\ViewModels\EmployeesPagedViewModel.cs" />
-    <Compile Include="ViewModels\Employees\ViewModels\EmployeeViewModel.cs" />
-    <Compile Include="ViewModels\Projects\InputModels\ProjectInputModel.cs" />
-    <Compile Include="ViewModels\Projects\ViewModels\ProjectsPagedViewModel.cs" />
-    <Compile Include="ViewModels\Projects\ViewModels\ProjectViewModel.cs" />
-    <Compile Include="ViewModels\Teams\InputModels\TeamInputModel.cs" />
-    <Compile Include="ViewModels\Teams\InputModels\TeamManageInputModel.cs" />
-    <Compile Include="ViewModels\Teams\ViewModels\TeamsPagedViewModel.cs" />
-    <Compile Include="ViewModels\Teams\ViewModels\TeamViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -214,6 +198,10 @@
     <ProjectReference Include="..\..\Services\CompanyManagementSystem.Services\CompanyManagementSystem.Services.csproj">
       <Project>{525a1072-fed8-415e-892a-5285b990dce7}</Project>
       <Name>CompanyManagementSystem.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTransferModels\CompanyManagementSystem.DataTransferModels\CompanyManagementSystem.DataTransferModels.csproj">
+      <Project>{dc32c63e-8a6d-4515-a119-4085a3135ab2}</Project>
+      <Name>CompanyManagementSystem.DataTransferModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mappings\CompanyManagementSystem.Mappings\CompanyManagementSystem.Mappings.csproj">
       <Project>{ea65679d-ef9a-4ea8-b75e-ff376b1965cc}</Project>

@@ -1,8 +1,8 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Employees.ViewModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Employees.ViewModels
 {
     using System.Collections.Generic;
 
-    using CompanyManagementSystem.Web.ViewModels.Common;
+    using CompanyManagementSystem.DataTransferModels.Common;
 
     public class EmployeesPagedViewModel : BasePagedViewModel
     {

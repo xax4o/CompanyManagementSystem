@@ -5,11 +5,11 @@
     using System.Net;
     using System.Web.Mvc;
 
+    using CompanyManagementSystem.DataTransferModels.Employees.InputModels;
+    using CompanyManagementSystem.DataTransferModels.Employees.ViewModels;
+    using CompanyManagementSystem.Mappings;
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
-    using CompanyManagementSystem.Web.Mappings;
-    using CompanyManagementSystem.Web.ViewModels.Employees.InputModels;
-    using CompanyManagementSystem.Web.ViewModels.Employees.ViewModels;
 
     public class EmployeesController : BaseController
     {

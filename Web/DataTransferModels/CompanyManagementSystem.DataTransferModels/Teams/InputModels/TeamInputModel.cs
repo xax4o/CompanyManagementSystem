@@ -1,11 +1,11 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Teams.InputModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Teams.InputModels
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
+    using CompanyManagementSystem.Mappings.Contracts;
     using CompanyManagementSystem.Models;
-    using CompanyManagementSystem.Web.Mappings.Contracts;
 
     public class TeamInputModel : IMapTo<Team>
     {

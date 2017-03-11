@@ -4,11 +4,11 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using CompanyManagementSystem.DataTransferModels.Projects.InputModels;
+    using CompanyManagementSystem.DataTransferModels.Projects.ViewModels;
+    using CompanyManagementSystem.Mappings;
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
-    using CompanyManagementSystem.Web.Mappings;
-    using CompanyManagementSystem.Web.ViewModels.Projects.InputModels;
-    using CompanyManagementSystem.Web.ViewModels.Projects.ViewModels;
 
     public class ProjectsController : BaseController
     {

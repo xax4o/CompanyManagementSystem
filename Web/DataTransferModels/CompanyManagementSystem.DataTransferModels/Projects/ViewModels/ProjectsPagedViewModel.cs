@@ -1,8 +1,8 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Projects.ViewModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Projects.ViewModels
 {
     using System.Collections.Generic;
 
-    using CompanyManagementSystem.Web.ViewModels.Common;
+    using CompanyManagementSystem.DataTransferModels.Common;
 
     public class ProjectsPagedViewModel : BasePagedViewModel
     {

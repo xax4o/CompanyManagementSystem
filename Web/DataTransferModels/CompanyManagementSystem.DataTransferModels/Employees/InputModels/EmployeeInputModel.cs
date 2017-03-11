@@ -1,9 +1,9 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Employees.InputModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Employees.InputModels
 {
     using System.ComponentModel.DataAnnotations;
 
+    using CompanyManagementSystem.Mappings.Contracts;
     using CompanyManagementSystem.Models;
-    using CompanyManagementSystem.Web.Mappings.Contracts;
 
     public class EmployeeInputModel : EmployeeBaseInputModel, IMapTo<Employee>
     {

@@ -1,9 +1,9 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Employees.ViewModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Employees.ViewModels
 {
     using AutoMapper;
 
+    using CompanyManagementSystem.Mappings.Contracts;
     using CompanyManagementSystem.Models;
-    using CompanyManagementSystem.Web.Mappings.Contracts;
 
     public class EmployeeViewModel : EmployeeBaseViewModel, IMapFrom<Employee>, IHaveCustomMappings
     {

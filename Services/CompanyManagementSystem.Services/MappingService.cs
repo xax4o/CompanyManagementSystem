@@ -3,7 +3,7 @@
     using AutoMapper;
 
     using CompanyManagementSystem.Services.Contracts;
-    using CompanyManagementSystem.Web.Mappings;
+    using CompanyManagementSystem.Mappings;
 
     public class MappingService : IMappingService
     {

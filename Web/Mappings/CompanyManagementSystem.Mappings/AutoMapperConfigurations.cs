@@ -1,4 +1,4 @@
-﻿namespace CompanyManagementSystem.Web.Mappings
+﻿namespace CompanyManagementSystem.Mappings
 {
     using System;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
 
     using AutoMapper;
 
-    using CompanyManagementSystem.Web.Mappings.Contracts;
+    using CompanyManagementSystem.Mappings.Contracts;
 
     public class AutoMapperConfigurations
     {

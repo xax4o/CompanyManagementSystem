@@ -1,12 +1,12 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Teams.ViewModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Teams.ViewModels
 {
     using System.Collections.Generic;
     using System.Linq;
 
     using AutoMapper;
 
+    using CompanyManagementSystem.Mappings.Contracts;
     using CompanyManagementSystem.Models;
-    using CompanyManagementSystem.Web.Mappings.Contracts;
 
     public class TeamViewModel : IMapFrom<Team>, IHaveCustomMappings
     {

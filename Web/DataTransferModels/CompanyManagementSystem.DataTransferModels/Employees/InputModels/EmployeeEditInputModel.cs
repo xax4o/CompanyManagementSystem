@@ -1,10 +1,10 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Employees.InputModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Employees.InputModels
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
 
+    using CompanyManagementSystem.Mappings.Contracts;
     using CompanyManagementSystem.Models;
-    using CompanyManagementSystem.Web.Mappings.Contracts;
 
     public class EmployeeEditInputModel : EmployeeBaseInputModel, IMapFrom<Employee>, IMapTo<Employee>
     {

@@ -5,11 +5,11 @@
     using System.Net;
     using System.Web.Mvc;
 
+    using CompanyManagementSystem.DataTransferModels.Teams.ViewModels;
+    using CompanyManagementSystem.DataTransferModels.Teams.InputModels;
+    using CompanyManagementSystem.Mappings;
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
-    using CompanyManagementSystem.Web.Mappings;
-    using CompanyManagementSystem.Web.ViewModels.Teams.ViewModels;
-    using CompanyManagementSystem.Web.ViewModels.Teams.InputModels;
 
     public class TeamsController : BaseController
     {

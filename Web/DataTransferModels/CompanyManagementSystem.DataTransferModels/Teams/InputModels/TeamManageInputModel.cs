@@ -1,4 +1,4 @@
-﻿namespace CompanyManagementSystem.Web.ViewModels.Teams.InputModels
+﻿namespace CompanyManagementSystem.DataTransferModels.Teams.InputModels
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
