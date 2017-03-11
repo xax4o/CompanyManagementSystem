@@ -8,6 +8,8 @@
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
     using CompanyManagementSystem.Web.Mappings;
+    using CompanyManagementSystem.Web.ViewModels.Teams.ViewModels;
+    using CompanyManagementSystem.Web.ViewModels.Teams.InputModels;
 
     public class TeamsController : BaseController
     {
@@ -137,7 +139,7 @@
                 .Where(p => p.Status == ProjectStatus.NotStarted)
                 .ToList();
 
-            var manageTeamViewModel = new AddRemoveMembersToTeamInputModel
+            var manageTeamViewModel = new TeamManageInputModel
             {
                 FreeMembers = this.employeesService.SelectListItemGenerator(freeEmployees),
                 TeamMembers = this.employeesService.SelectListItemGenerator(teamMembers),
@@ -149,7 +151,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Manage(int id, AddRemoveMembersToTeamInputModel model)
+        public ActionResult Manage(int id, TeamManageInputModel model)
         {
             if (!ModelState.IsValid)
             {

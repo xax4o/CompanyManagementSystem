@@ -6,6 +6,9 @@
 
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
+    using CompanyManagementSystem.Web.Mappings;
+    using CompanyManagementSystem.Web.ViewModels.Projects.InputModels;
+    using CompanyManagementSystem.Web.ViewModels.Projects.ViewModels;
 
     public class ProjectsController : BaseController
     {

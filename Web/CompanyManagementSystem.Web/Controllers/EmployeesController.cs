@@ -7,6 +7,9 @@
 
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
+    using CompanyManagementSystem.Web.Mappings;
+    using CompanyManagementSystem.Web.ViewModels.Employees.InputModels;
+    using CompanyManagementSystem.Web.ViewModels.Employees.ViewModels;
 
     public class EmployeesController : BaseController
     {
@@ -114,21 +117,21 @@
                 return PartialView("Error");
             }
 
-            var employeeManageInputModel = new EmployeeManageInputModel();
-
             var employeesToAdd = this.employeesService
                 .AllEmployees()
                 .Where(e => e.Position == employee.Position + 1 && e.Manager == null)
                 .ToList();
-
-            employeeManageInputModel.ListMembersToAdd = this.employeesService.SelectListItemGenerator(employeesToAdd);
 
             var employeesToRemove = this.employeesService
                 .AllEmployees()
                 .Where(e => e.EmployeeId == employee.Id)
                 .ToList();
 
-            employeeManageInputModel.ListMembersToRemove = this.employeesService.SelectListItemGenerator(employeesToRemove);
+            var employeeManageInputModel = new EmployeeManageInputModel
+            {
+                ListMembersToAdd = this.employeesService.SelectListItemGenerator(employeesToAdd),
+                ListMembersToRemove = this.employeesService.SelectListItemGenerator(employeesToRemove)
+            };
 
             return View(employeeManageInputModel);
         }
@@ -207,5 +210,5 @@
 
             return RedirectToAction("Index");
         }
-	}
+    }
 }

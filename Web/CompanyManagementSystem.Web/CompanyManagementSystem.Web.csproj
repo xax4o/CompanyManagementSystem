@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -132,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Views\Employees\" />
     <Folder Include="Views\Projects\" />
     <Folder Include="Views\Teams\" />
@@ -154,6 +157,22 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Common\BasePagedViewModel.cs" />
+    <Compile Include="ViewModels\Employees\InputModels\EmployeeBaseInputModel.cs" />
+    <Compile Include="ViewModels\Employees\InputModels\EmployeeEditInputModel.cs" />
+    <Compile Include="ViewModels\Employees\InputModels\EmployeeInputModel.cs" />
+    <Compile Include="ViewModels\Employees\InputModels\EmployeeManageInputModel.cs" />
+    <Compile Include="ViewModels\Employees\ViewModels\EmployeeBaseViewModel.cs" />
+    <Compile Include="ViewModels\Employees\ViewModels\EmployeeDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Employees\ViewModels\EmployeesPagedViewModel.cs" />
+    <Compile Include="ViewModels\Employees\ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\Projects\InputModels\ProjectInputModel.cs" />
+    <Compile Include="ViewModels\Projects\ViewModels\ProjectsPagedViewModel.cs" />
+    <Compile Include="ViewModels\Projects\ViewModels\ProjectViewModel.cs" />
+    <Compile Include="ViewModels\Teams\InputModels\TeamInputModel.cs" />
+    <Compile Include="ViewModels\Teams\InputModels\TeamManageInputModel.cs" />
+    <Compile Include="ViewModels\Teams\ViewModels\TeamsPagedViewModel.cs" />
+    <Compile Include="ViewModels\Teams\ViewModels\TeamViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -184,6 +203,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\CompanyManagementSystem.Data\CompanyManagementSystem.Data.csproj">
+      <Project>{1d6e9a95-a338-4e43-bcfe-bac61eb7718d}</Project>
+      <Name>CompanyManagementSystem.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Models\CompanyManagementSystem.Models\CompanyManagementSystem.Models.csproj">
       <Project>{3b5cbc71-33d7-433b-ad3e-044954ea14e2}</Project>
       <Name>CompanyManagementSystem.Models</Name>
