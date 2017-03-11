@@ -1,4 +1,4 @@
-﻿@model CompanyManagementSystem.DataTransferModels.Employees.InputModels.EmployeeManageInputModel
+﻿@model CompanyManagementSystem.DataTransferModels.Manage.InputModels.EmployeeManageInputModel
 @{
     ViewBag.Title = "Manage";
 }
@@ -11,15 +11,15 @@
         @Html.AntiForgeryToken()
 
         <div class="form-group">
-            @Html.LabelFor(t => t.TeamMembersToAdd, new { @class = "col-md-2 control-label" })
+            @Html.LabelFor(t => t.EmployeesToAdd, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.ListBoxFor(t => t.TeamMembersToAdd, @Model.ListMembersToAdd, new { @class = "form-control", SelectionMode = "Multiple" })
+                @Html.ListBoxFor(t => t.EmployeesToAdd, @Model.ListOfFreeEmployees, new { @class = "form-control", SelectionMode = "Multiple" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(t => t.TeamMembersToRemove, new { @class = "col-md-2 control-label" })
+            @Html.LabelFor(t => t.EmployeesToRemove, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.ListBoxFor(t => t.TeamMembersToRemove, @Model.ListMembersToRemove, new { @class = "form-control", SelectionMode = "Multiple" })
+                @Html.ListBoxFor(t => t.EmployeesToRemove, @Model.ListOfManagedEmployees, new { @class = "form-control", SelectionMode = "Multiple" })
             </div>
         </div>
 

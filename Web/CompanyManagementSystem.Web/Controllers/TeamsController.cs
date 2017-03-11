@@ -53,7 +53,7 @@
         }
 
         [HttpGet]
-        public ActionResult Team(int id)
+        public ActionResult Details(int id)
         {
             var team = this.teamsService.GetTeamById(id);
 

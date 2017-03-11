@@ -186,13 +186,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Employees\Add.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
-    <Content Include="Views\Employees\Employee.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Projects\Add.cshtml" />
     <Content Include="Views\Projects\Index.cshtml" />
     <Content Include="Views\Teams\Add.cshtml" />
     <Content Include="Views\Teams\Index.cshtml" />
-    <Content Include="Views\Teams\Team.cshtml" />
+    <Content Include="Views\Teams\Details.cshtml" />
     <Content Include="Views\Manage\Team.cshtml" />
     <Content Include="Views\Manage\Employee.cshtml" />
   </ItemGroup>

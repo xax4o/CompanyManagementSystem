@@ -4,8 +4,7 @@
     using System.Net;
     using System.Web.Mvc;
 
-    using CompanyManagementSystem.DataTransferModels.Employees.InputModels;
-    using CompanyManagementSystem.DataTransferModels.Teams.InputModels;
+    using CompanyManagementSystem.DataTransferModels.Manage.InputModels;
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
 
@@ -57,8 +56,8 @@
 
             var employeeManageInputModel = new EmployeeManageInputModel
             {
-                ListMembersToAdd = this.employeesService.SelectListItemGenerator(employeesToAdd),
-                ListMembersToRemove = this.employeesService.SelectListItemGenerator(employeesToRemove)
+                ListOfFreeEmployees = this.employeesService.SelectListItemGenerator(employeesToAdd),
+                ListOfManagedEmployees = this.employeesService.SelectListItemGenerator(employeesToRemove)
             };
 
             return View(employeeManageInputModel);
@@ -85,13 +84,13 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            if (!this.employeesService.IfEmployeesCanBeRemovedChecker(employee, model.TeamMembersToRemove))
+            if (!this.employeesService.IfEmployeesCanBeRemovedChecker(employee, model.EmployeesToRemove))
             {
                 return PartialView("Error");
             }
 
-            this.employeesService.AddEmployeesToManager(id, model.TeamMembersToAdd);
-            this.employeesService.RemoveEmployeesFromManager(model.TeamMembersToRemove);
+            this.employeesService.AddEmployeesToManager(id, model.EmployeesToAdd);
+            this.employeesService.RemoveEmployeesFromManager(model.EmployeesToRemove);
 
             return RedirectToAction("Index", "Employees");
         }

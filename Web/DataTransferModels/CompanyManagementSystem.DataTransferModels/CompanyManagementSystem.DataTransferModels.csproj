@@ -76,7 +76,7 @@
     <Compile Include="Employees\InputModels\EmployeeBaseInputModel.cs" />
     <Compile Include="Employees\InputModels\EmployeeEditInputModel.cs" />
     <Compile Include="Employees\InputModels\EmployeeInputModel.cs" />
-    <Compile Include="Employees\InputModels\EmployeeManageInputModel.cs" />
+    <Compile Include="Manage\InputModels\EmployeeManageInputModel.cs" />
     <Compile Include="Employees\ViewModels\EmployeeBaseViewModel.cs" />
     <Compile Include="Employees\ViewModels\EmployeeDetailsViewModel.cs" />
     <Compile Include="Employees\ViewModels\EmployeesPagedViewModel.cs" />
@@ -87,7 +87,7 @@
     <Compile Include="Projects\ViewModels\ProjectViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Teams\InputModels\TeamInputModel.cs" />
-    <Compile Include="Teams\InputModels\TeamManageInputModel.cs" />
+    <Compile Include="Manage\InputModels\TeamManageInputModel.cs" />
     <Compile Include="Teams\ViewModels\TeamDetailsViewModel.cs" />
     <Compile Include="Teams\ViewModels\TeamsPagedViewModel.cs" />
     <Compile Include="Teams\ViewModels\TeamViewModel.cs" />

@@ -47,7 +47,7 @@
         }
 
         [HttpGet]
-        public ActionResult Employee(int id)
+        public ActionResult Details(int id)
         {
             var employee = this.employeesService.GetEmployeeById(id);
 
@@ -59,7 +59,7 @@
                 .GetEmployeesManagersNameAtPosition(CompanyRoleType.DeliveryDirector, employee);
             employeeDetailsViewModel.ProjectManager = employeesService
                 .GetEmployeesManagersNameAtPosition(CompanyRoleType.ProjectManager, employee);
-            employeeDetailsViewModel.TeamLead = employeesService
+            employeeDetailsViewModel.TeamLeader = employeesService
                 .GetEmployeesManagersNameAtPosition(CompanyRoleType.TeamLeader, employee);
 
             return View(employeeDetailsViewModel);
