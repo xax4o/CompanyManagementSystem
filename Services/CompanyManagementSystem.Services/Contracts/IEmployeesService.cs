@@ -16,6 +16,8 @@
 
         void UpdateEmployee(int id, string phone, decimal salary, string email, string workplace, int? positionAsInt);
 
+        bool IfEmployeesCanBeRemovedChecker(Employee manager, IEnumerable<int> idsOfEmployeesToRemove);
+
         string GetEmployeesManagersNameAtPosition(CompanyRoleType type, Employee employee);
 
         Employee GetEmployeeById(int id);

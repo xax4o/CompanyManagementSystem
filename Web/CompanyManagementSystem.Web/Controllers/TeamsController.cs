@@ -5,8 +5,10 @@
     using System.Net;
     using System.Web.Mvc;
 
-    using CompanyManagementSystem.DataTransferModels.Teams.ViewModels;
+    using CompanyManagementSystem.DataTransferModels.Employees.ViewModels;
+    using CompanyManagementSystem.DataTransferModels.Projects.ViewModels;
     using CompanyManagementSystem.DataTransferModels.Teams.InputModels;
+    using CompanyManagementSystem.DataTransferModels.Teams.ViewModels;
     using CompanyManagementSystem.Mappings;
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
@@ -63,7 +65,20 @@
                 return HttpNotFound();
             }
 
-            var teamViewModel = this.mappingService.Map<TeamViewModel>(team);
+            var teamViewModel = this.mappingService.Map<TeamDetailsViewModel>(team);
+
+            teamViewModel.Employees = team
+                .Employees
+                .Where(e => e.Position != CompanyRoleType.TeamLeader)
+                .AsQueryable()
+                .To<EmployeeBaseViewModel>()
+                .ToList();
+
+            teamViewModel.Projects = team
+                .Projects
+                .AsQueryable()
+                .To<ProjectBaseViewModel>()
+                .ToList();
 
             return View(teamViewModel);
         }

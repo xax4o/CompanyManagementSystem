@@ -7,12 +7,8 @@
     using CompanyManagementSystem.Mappings.Contracts;
     using CompanyManagementSystem.Models;
 
-    public class ProjectViewModel : IMapFrom<Project>, IHaveCustomMappings
+    public class ProjectViewModel : ProjectBaseViewModel, IMapFrom<Project>, IHaveCustomMappings
     {
-        public string Name { get; set; }
-
-        public ProjectStatus Status { get; set; }
-
         public string TeamName { get; set; }
 
         public string TeamLeadsName { get; set; }

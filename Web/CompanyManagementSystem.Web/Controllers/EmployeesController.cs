@@ -54,10 +54,14 @@
 
             var employeeDetailsViewModel = this.mappingService.Map<EmployeeDetailsViewModel>(employee);
 
-            employeeDetailsViewModel.Ceo = employeesService.GetEmployeesManagersNameAtPosition(CompanyRoleType.CEO, employee);
-            employeeDetailsViewModel.DeliveryDirector = employeesService.GetEmployeesManagersNameAtPosition(CompanyRoleType.DeliveryDirector, employee);
-            employeeDetailsViewModel.ProjectManager = employeesService.GetEmployeesManagersNameAtPosition(CompanyRoleType.ProjectManager, employee);
-            employeeDetailsViewModel.TeamLead = employeesService.GetEmployeesManagersNameAtPosition(CompanyRoleType.TeamLeader, employee);
+            employeeDetailsViewModel.Ceo = employeesService
+                .GetEmployeesManagersNameAtPosition(CompanyRoleType.CEO, employee);
+            employeeDetailsViewModel.DeliveryDirector = employeesService
+                .GetEmployeesManagersNameAtPosition(CompanyRoleType.DeliveryDirector, employee);
+            employeeDetailsViewModel.ProjectManager = employeesService
+                .GetEmployeesManagersNameAtPosition(CompanyRoleType.ProjectManager, employee);
+            employeeDetailsViewModel.TeamLead = employeesService
+                .GetEmployeesManagersNameAtPosition(CompanyRoleType.TeamLeader, employee);
 
             return View(employeeDetailsViewModel);
         }
@@ -157,6 +161,11 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            if (!this.employeesService.IfEmployeesCanBeRemovedChecker(employee, model.TeamMembersToRemove))
+            {
+                return PartialView("Error");
+            }  
+
             this.employeesService.AddEmployeesToManager(id, model.TeamMembersToAdd);
             this.employeesService.RemoveEmployeesFromManager(model.TeamMembersToRemove);
 
@@ -177,7 +186,8 @@
 
             if (employee.Position > CompanyRoleType.TeamLeader)
             {
-                employeeEditInputModel.AvailablePositions = this.employeesService.SelectListItemGenerator(CompanyRoleType.Senior, CompanyRoleType.Trainee, employee.Position);
+                employeeEditInputModel.AvailablePositions = 
+                    this.employeesService.SelectListItemGenerator(CompanyRoleType.Senior, CompanyRoleType.Trainee, employee.Position);
             }
 
             return View(employeeEditInputModel);

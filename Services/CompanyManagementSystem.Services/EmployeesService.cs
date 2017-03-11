@@ -58,6 +58,25 @@
             this.employees.SaveChanges();
         }
 
+        public bool IfEmployeesCanBeRemovedChecker(Employee manager, IEnumerable<int> idsOfEmployeesToRemove)
+        {
+            if (idsOfEmployeesToRemove == null)
+            {
+                return true;
+            }
+
+            foreach (var currentId in idsOfEmployeesToRemove)
+            {
+                if (manager.Position != CompanyRoleType.ProjectManager
+                    && this.employees.All().Any(e => e.EmployeeId == currentId))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public void AddEmployee(Employee employeeToAdd)
         {
             if (employeeToAdd == null)
