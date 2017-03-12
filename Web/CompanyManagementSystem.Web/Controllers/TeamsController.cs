@@ -12,6 +12,7 @@
     using CompanyManagementSystem.Mappings;
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
+    using CompanyManagementSystem.Web.Common;
 
     public class TeamsController : BaseController
     {
@@ -30,7 +31,7 @@
         }
 
         [HttpGet]
-        public ActionResult Index(int page = 1, int size = 10)
+        public ActionResult Index(int page = Constants.DefaultStartPage, int size = Constants.DefaultPageSize)
         {
             var allTeamsCount = this.teamsService.AllTeams().Count();
 
@@ -123,7 +124,7 @@
             this.teamsService.AddTeam(team, model.ProjectTeamLeadId);
             this.teamsService.AddTeamMemebers(team, model.TeamMembersIds);
 
-            return RedirectToAction("Index");
+            return RedirectToAction(Constants.Index);
         }
     }
 }

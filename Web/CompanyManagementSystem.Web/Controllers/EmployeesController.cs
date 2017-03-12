@@ -9,6 +9,7 @@
     using CompanyManagementSystem.Mappings;
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
+    using CompanyManagementSystem.Web.Common;
 
     public class EmployeesController : BaseController
     {
@@ -22,7 +23,7 @@
         }
 
         [HttpGet]
-        public ActionResult Index(int page = 1, int size = 10)
+        public ActionResult Index(int page = Constants.DefaultStartPage, int size = Constants.DefaultPageSize)
         {
             var employeesCount = this.employeesService
                 .AllEmployees()
@@ -83,21 +84,21 @@
             if (this.employeesService.AllEmployees().Any(e => e.Position == CompanyRoleType.CEO)
                 && model.Position == CompanyRoleType.CEO)
             {
-                ModelState.AddModelError(string.Empty, "There's already a CEO added. You cannot add another one.");
+                ModelState.AddModelError(string.Empty, Constants.CeoExistsMessage);
                 return View(model);
             }
 
             if (!this.employeesService.AllEmployees().Any(e => e.Position == CompanyRoleType.CEO)
                 && model.Position != CompanyRoleType.CEO)
             {
-                ModelState.AddModelError(string.Empty, "There's no CEO added. You must add CEO first.");
+                ModelState.AddModelError(string.Empty, Constants.NoCeoMessage);
                 return View(model);
             }
 
             var employee = this.mappingService.Map<Employee>(model);
             this.employeesService.AddEmployee(employee);
 
-            return RedirectToAction("Index");
+            return RedirectToAction(Constants.Index);
         }
 
         [HttpGet]
@@ -146,7 +147,7 @@
                 this.employeesService.UpdateEmployee(id, model.Phone, model.Salary, model.Email, model.Workplace, null);
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction(Constants.Index);
         }
     }
 }

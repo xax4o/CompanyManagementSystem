@@ -7,6 +7,7 @@
     using CompanyManagementSystem.DataTransferModels.Manage.InputModels;
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
+    using CompanyManagementSystem.Web.Common;
 
     public class ManageController : BaseController
     {
@@ -41,7 +42,7 @@
 
             if (employee.Position != CompanyRoleType.CEO && employee.Manager == null)
             {
-                return View("NoManagerMessage");
+                return View(Constants.NoManager);
             }
 
             var employeesToAdd = this.employeesService
@@ -86,13 +87,13 @@
 
             if (!this.employeesService.IfEmployeesCanBeRemovedChecker(employee, model.EmployeesToRemove))
             {
-                return View("CannotRemoveEmployeeMessage");
+                return View(Constants.CannotRemoveEmployee);
             }
 
             this.employeesService.AddEmployeesToManager(id, model.EmployeesToAdd);
             this.employeesService.RemoveEmployeesFromManager(model.EmployeesToRemove);
 
-            return RedirectToAction("Index", "Employees");
+            return RedirectToAction(Constants.Index, Constants.Employees);
         }
 
         [HttpGet]
@@ -152,7 +153,7 @@
             var projectToAdd = this.projectsService.AllProjects().FirstOrDefault(p => p.Id == model.ProjectToAdd);
             this.teamsService.AddProjectToTeam(team, projectToAdd);
 
-            return RedirectToAction("Index", "Teams");
+            return RedirectToAction(Constants.Index, Constants.Teams);
         }
     }
 }

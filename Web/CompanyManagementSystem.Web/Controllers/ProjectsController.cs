@@ -9,6 +9,7 @@
     using CompanyManagementSystem.Mappings;
     using CompanyManagementSystem.Models;
     using CompanyManagementSystem.Services.Contracts;
+    using CompanyManagementSystem.Web.Common;
 
     public class ProjectsController : BaseController
     {
@@ -22,7 +23,7 @@
         }
 
         [HttpGet]
-        public ActionResult Index(int page = 1, int size = 10)
+        public ActionResult Index(int page = Constants.DefaultStartPage, int size = Constants.DefaultPageSize)
         {
             var projectsCount = this.projectsService.AllProjects().Count();
 
@@ -63,7 +64,7 @@
 
             this.projectsService.AddProject(project);
 
-            return RedirectToAction("Index");
+            return RedirectToAction(Constants.Index);
         }
     }
 }
