@@ -59,17 +59,6 @@
             entry.State = EntityState.Modified;
         }
 
-        //public virtual T Attach(T entity)
-        //{
-        //    return this.Context.Set<T>().Attach(entity);
-        //}
-        //
-        //public virtual void Detach(T entity)
-        //{
-        //    var entry = this.Context.Entry(entity);
-        //    entry.State = EntityState.Detached;
-        //}
-
         public int SaveChanges()
         {
             return this.Context.SaveChanges();
