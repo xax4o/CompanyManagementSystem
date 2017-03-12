@@ -195,6 +195,8 @@
     <Content Include="Views\Teams\Details.cshtml" />
     <Content Include="Views\Manage\Team.cshtml" />
     <Content Include="Views\Manage\Employee.cshtml" />
+    <Content Include="Views\Manage\NoManagerMessage.cshtml" />
+    <Content Include="Views\Manage\CannotRemoveEmployeeMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\CompanyManagementSystem.Data\CompanyManagementSystem.Data.csproj">

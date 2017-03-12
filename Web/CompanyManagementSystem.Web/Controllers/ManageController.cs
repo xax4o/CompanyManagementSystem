@@ -41,7 +41,7 @@
 
             if (employee.Position != CompanyRoleType.CEO && employee.Manager == null)
             {
-                return PartialView("Error");
+                return View("NoManagerMessage");
             }
 
             var employeesToAdd = this.employeesService
@@ -86,7 +86,7 @@
 
             if (!this.employeesService.IfEmployeesCanBeRemovedChecker(employee, model.EmployeesToRemove))
             {
-                return PartialView("Error");
+                return View("CannotRemoveEmployeeMessage");
             }
 
             this.employeesService.AddEmployeesToManager(id, model.EmployeesToAdd);
@@ -154,5 +154,5 @@
 
             return RedirectToAction("Index", "Teams");
         }
-	}
+    }
 }
