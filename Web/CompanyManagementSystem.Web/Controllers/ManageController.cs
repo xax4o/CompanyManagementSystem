@@ -45,10 +45,12 @@
                 return View(Constants.NoManager);
             }
 
+            // Getting all employees with a position one step lower.
+            // If DeliveryManager(Enum position = 1) get all ProjectManagers(Enum position = 2).
             var employeesToAdd = this.employeesService
                 .AllEmployees()
-                .Where(e => e.Position == employee.Position + 1 && e.Manager == null)
-                .ToList();
+                .Where(e => e.Position == employee.Position + 1 && e.Manager == null) 
+                .ToList();                                                            
 
             var employeesToRemove = this.employeesService
                 .AllEmployees()
@@ -80,6 +82,7 @@
                 return HttpNotFound();
             }
 
+            //Only CEO(enum 0), DeliveryDirector(enum 1), ProjectManager(enum 2) can manage employees.
             if (employee.Position > CompanyRoleType.ProjectManager)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -106,6 +109,7 @@
                 return HttpNotFound();
             }
 
+            //Only Senior(enum 4), Intermediate(enum 5), Junior(enum 6) and Trainee(enum 7) can be added and removed from team.
             var freeEmployees = this.employeesService
                 .AllEmployees()
                 .Where(e => e.Position > CompanyRoleType.TeamLeader && e.Team == null)

@@ -113,6 +113,8 @@
 
             var employeeEditInputModel = this.mappingService.Map<EmployeeEditInputModel>(employee);
 
+            //The current employee Position must be bigger than Team Leader because
+            //in my enum CEO is equal to zero and trainee is 7
             if (employee.Position > CompanyRoleType.TeamLeader)
             {
                 employeeEditInputModel.AvailablePositions = 

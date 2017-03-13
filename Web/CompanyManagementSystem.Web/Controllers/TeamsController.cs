@@ -89,6 +89,7 @@
                 .Where(e => e.Position == CompanyRoleType.TeamLeader && e.Team == null && e.Manager != null)
                 .ToList();
 
+            //Only Senior(enum 4), Intermediate(enum 5), Junior(enum 6) and Trainee(enum 7) can be added and removed from team.
             var freeTeamMembers = this.employeesService
                 .AllEmployees()
                 .Where(e => e.Position > CompanyRoleType.TeamLeader && e.Team == null)
